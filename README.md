@@ -12,7 +12,8 @@ A RESTful Web API for managing products, built to demonstrate **Clean Architectu
 
 ## Architecture
 
-The solution is organised into layers inside a single project. Dependencies point inward: controllers depend on services, services depend on repository interfaces, and the domain depends on nothing.
+The solution is organised into layers inside a single project. Dependencies point inward: controllers depend on services, 
+services depend on repository interfaces, and the domain depends on nothing.
 
 ```
 ProductManagement/
