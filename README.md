@@ -75,7 +75,8 @@ ProductManagement/
 
 ## Screenshots
 
-![Swagger UI](docs/swagger.png)
+![Swagger UI](docs/<img width="1876" height="691" alt="Swagger" src="https://github.com/user-attachments/assets/8e3cbf12-af5a-4234-9bdf-5ca110a254d9" />
+.png)
 
 ## Roadmap
 
