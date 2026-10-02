@@ -12,9 +12,12 @@ A RESTful Web API for managing products, built to demonstrate **Clean Architectu
 
 ## Architecture
 
-The solution is organised into layers inside a single project. Dependencies point inward: controllers depend on services, 
-services depend on repository interfaces, and the domain depends on nothing.
+The solution is organised into layers inside a single project. Dependencies point inward: controllers depend on services, services depend on repository interfaces, and the domain depends on nothing.
 
+## System architecture
+<img width="2720" height="2496" alt="product_management_system_architecture" src="https://github.com/user-attachments/assets/1398d3bb-27ca-4aae-a370-8ac8e3236b9f" />
+
+## Folder structure
 ```
 ProductManagement/
 ├── Domain/
@@ -44,6 +47,23 @@ ProductManagement/
 | PUT | `/api/Product/{id}` | Update a product |
 | DELETE | `/api/Product/{id}` | Delete a product |
 
+## Request flow (GET /api/Product/1)
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant Ctrl as ProductController
+    participant S as ProductService
+    participant R as ProductRepository
+    participant DB as SQL Server
+    C->>Ctrl: GET /api/Product/1
+    Ctrl->>S: GetProductByIdAsync(1)
+    S->>R: GetByIdAsync(1)
+    R->>DB: SELECT via EF Core
+    DB-->>R: Product row
+    R-->>S: Product
+    S-->>Ctrl: ProductDTO
+    Ctrl-->>C: 200 OK or 404 Not Found
+```
 ## Getting Started
 
 ### Prerequisites
